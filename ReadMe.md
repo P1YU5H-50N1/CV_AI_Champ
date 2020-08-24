@@ -13,11 +13,16 @@ shouldn’t contain stop words (like is, the, an, etc.).
 
 # Files And Directory Structure
 #### PDFScraper.py
-PDF Scraper, obviously, scrapes PDFs of one's LinkedIn connections. Certain variables like username and password needs to be provided by the user. It uses selenium (yes, it is a testing suite but here is being hacked a web scraper ) and Google Chrome.
+PDF Scraper, obviously, scrapes PDFs of one's LinkedIn connections. Certain variables like username and password needs to be provided by the user. It uses selenium (yes, it is a testing suite but here is being hacked a web scraper ) and Google Chrome.  
+#### pdfToCSV.py
+This script contains two functions and uses pandas and pdftotext library from PyPI. First it takes Directory Path where LinkedIn resumes are stored in a format like Profile.pdf, Profile (1).pdf ...upto Profile (N).pdf. In our case it is N = 50.  
 
 # Prerequisites
 
 * Selenium<br/>
 * Python 3<br/>
 * Google Chrome<br/>
+* pdftotext<br/>
+* Pandas<br/>
+* NLTK<br/>
  
