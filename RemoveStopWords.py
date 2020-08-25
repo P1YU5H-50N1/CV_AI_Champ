@@ -3,7 +3,16 @@ import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
+def RemoveRemainingStopWords(WordList,WordCounts,PercentileTh):
+    
+    WordFreqData = pd.DataFrame(WordCounts.values())
+    MaxWordCount = list(WordFreqData.quantile([PercentileTh])[0])[0]
+    CustomStopWords = [stopWord for stopWord in WordCounts if WordCounts[stopWord] > MaxWordCount]
+    Result = [word for word in WordList if not word in CustomStopWords]
+    return Result
+
 def CountWordFrequecy(Words):
+
     UniqueWords = list(set(Words))
     WordFreq = dict()
     for word in UniqueWords:
@@ -12,6 +21,7 @@ def CountWordFrequecy(Words):
 
 
 def RemoveSymbols(Words):
+
     # included @ because of emails
     alphanums = "abcdefghijklmnopqrstuvwxyz@1234567890"
     result = []
@@ -32,7 +42,7 @@ def RemoveSymbols(Words):
 
     return result
 
-def RemoveStopWords(CSV_path):
+def Remove_NLTK_StopWords(CSV_path):
 
     stop_Words = set(stopwords.words('english')) 
     df = pd.read_csv(CSV_path)
@@ -44,6 +54,9 @@ def RemoveStopWords(CSV_path):
 if __name__ == '__main__':
 
     Directory = 'CSVs/Resumes.csv'
-    RefinedWords = RemoveStopWords(Directory)
-
-    print(len(RefinedWords))
+    PercentileThreshold = 0.95
+    Words = Remove_NLTK_StopWords(Directory)
+    WordFrequency = CountWordFrequecy(Words)
+    Result = RemoveRemainingStopWords(Words,WordFrequency,PercentileThreshold)
+    print(len(Result))
+    print(Result)
