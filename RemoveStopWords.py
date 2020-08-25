@@ -51,6 +51,23 @@ def Remove_NLTK_StopWords(CSV_path):
     RefinedWords = [word for word in words if not word in stop_Words]
     return RefinedWords
 
+def Remove_NLTK_StopWords2(Text):
+
+    stop_Words = set(stopwords.words('english')) 
+    Words = Text.split()
+    words = [str(word).lower() for word in Words]
+    words = RemoveSymbols(words)
+    RefinedWords = [word for word in words if not word in stop_Words]
+    return RefinedWords
+
+def serverSnippet(Text):
+    PercentileThreshold = 0.95
+    Words = Remove_NLTK_StopWords2(Text)
+    WordFrequency = CountWordFrequecy(Words)
+    Result = RemoveRemainingStopWords(Words,WordFrequency,PercentileThreshold)
+    Result = CountWordFrequecy(Result)
+    return Result
+
 if __name__ == '__main__':
 
     Directory = 'CSVs/Resumes.csv'

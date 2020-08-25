@@ -1,13 +1,32 @@
 from flask import Flask, render_template, request, jsonify
 import pdftotext
+import sys
+
+sys.path.append('../')
+from AI_Champ.RemoveStopWords import serverSnippet
 
 app = Flask(__name__,template_folder='template')
 app.config['UPLOAD_FOLDER'] = '/API_Test'
 app.config['MAX_CONTENT_PATH'] = 100000000000000000000000000000
 
+@app.route('/significantWords',methods = ['POST'])
+def impWords():
+    if request.method == 'POST':
+
+        text = request.form['textdata']
+        response = dict()
+        response['Imp_Words'] = serverSnippet(text)
+        return jsonify(response)
+    else:
+        return 
+
+@app.route('/uploadWords',methods = ['GET'])
+def uploadText():
+    return render_template('submitText.html')
+
 @app.route('/textExtractor',methods = ['GET'])
 def text_Extractor():
-    return render_template('upload.html')
+    return render_template('uploadPDF.html')
 
 @app.route('/uploadPDF', methods = ['GET','POST'])
 def upload_file():
