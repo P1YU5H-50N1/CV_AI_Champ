@@ -1,5 +1,11 @@
 /Chromedriver
 /PDFs
 /CSVs
+
+#playground file to test sample scripts
 Playground.py
+
 /.vscode
+
+#playground notebook to test sample script
+Pg.ipynb

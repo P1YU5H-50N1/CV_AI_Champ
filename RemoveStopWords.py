@@ -3,11 +3,33 @@ import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
+def RemoveSymbols(Words):
+    # included @ because of emails
+    alphanums = "abcdefghijklmnopqrstuvwxyz@1234567890"
+    result = []
+    Symbols = set()
+    temp = []
+
+    for word in Words:
+        for letter in word:
+            if not letter in alphanums and not letter in Symbols:
+                Symbols.add(letter)
+    for word in Words:
+        for sym in Symbols.intersection(set(word)):
+            word = word.replace(sym,' ')
+        temp = word.split(' ')
+        for exceptEmptyCharacters in temp:
+            if exceptEmptyCharacters != '':
+                result.append(exceptEmptyCharacters)
+
+    return result
+
 def RemoveStopWords(CSV_path):
 
     stop_Words = set(stopwords.words('english')) 
     df = pd.read_csv(CSV_path)
     words = [str(word).lower() for row in range(50) for word in df.loc[row] if pd.notnull(word)]
+    words = RemoveSymbols(words)
     RefinedWords = [word for word in words if not word in stop_Words]
     return RefinedWords
 
