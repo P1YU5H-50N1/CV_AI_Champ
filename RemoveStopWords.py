@@ -3,6 +3,14 @@ import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
+def CountWordFrequecy(Words):
+    UniqueWords = list(set(Words))
+    WordFreq = dict()
+    for word in UniqueWords:
+        WordFreq[word] = Words.count(word)
+    return WordFreq
+
+
 def RemoveSymbols(Words):
     # included @ because of emails
     alphanums = "abcdefghijklmnopqrstuvwxyz@1234567890"
