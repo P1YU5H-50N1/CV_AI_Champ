@@ -3,7 +3,7 @@ import pdftotext
 import sys
 
 sys.path.append('../')
-from AI_Champ.RemoveStopWords import serverSnippet
+from RemoveStopWords import serverSnippet
 
 app = Flask(__name__,template_folder='template')
 app.config['UPLOAD_FOLDER'] = '/API_Test'
@@ -24,12 +24,12 @@ def impWords():
 def uploadText():
     return render_template('submitText.html')
 
-@app.route('/textExtractor',methods = ['GET'])
-def text_Extractor():
+@app.route('/uploadPDF',methods = ['GET'])
+def upload_file():
     return render_template('uploadPDF.html')
 
-@app.route('/uploadPDF', methods = ['GET','POST'])
-def upload_file():
+@app.route('/textExtractor', methods = ['GET','POST'])
+def text_Extractor():
     if request.method == 'POST':
         
         response = dict()
