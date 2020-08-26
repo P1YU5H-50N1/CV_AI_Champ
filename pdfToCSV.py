@@ -19,18 +19,20 @@ def pdfToWords(DocPath):
 if __name__=="__main__":
 
     Corpus = []
-
+    PDF_DIRECTORY = 'PDFs'
+    CSV_FILE = 'CSVs/Resumes.csv'
+    NUMBER_OF_PDFs = 50
     print('Starting the job.....')
-    for i in range(50):
+    for i in range(NUMBER_OF_PDFs):
         if i != 0:
-            Path = 'PDFs/Profile (' + str(i) + ').pdf'
+            Path = PDF_DIRECTORY + '/Profile (' + str(i) + ').pdf'
         else:
-            Path = 'PDFs/Profile.pdf'
+            Path = PDF_DIRECTORY + '/Profile.pdf'
         
         Corpus.append(pdfToWords(Path))
 
     csv = pd.DataFrame(Corpus)
-    f = open('CSVs/Resumes.csv','w')
+    f = open(CSV_FILE,'w')
     f.close()
-    csv.to_csv('CSVs/Resumes.csv',index = False)
+    csv.to_csv(CSV_FILE,index = False)
     print("Completed Successfully...")

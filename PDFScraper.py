@@ -3,11 +3,15 @@ import time
 #Script to get 50 the pdfs frome LinkedIn
 
 options = webdriver.ChromeOptions() 
-download_dir = '<DOWNLOAD DIRECTORY>'
-prefs = {"download.default_directory": download_dir,"download.prompt_for_download": False}
+
+DOWNLOAD_DIR = '<DOWNLOAD DIRECTORY>'
+
+prefs = {"download.default_directory": DOWNLOAD_DIR,"download.prompt_for_download": False}
 options.add_experimental_option("prefs", prefs)
 
-driver = webdriver.Chrome('<CHROME_EXECUTABLE',options=options)
+CHROME_EXECUTABLE = '<CHROME_EXECUTABLE>'
+
+driver = webdriver.Chrome(CHROME_EXECUTABLE,options=options)
 driver.maximize_window()
 driver.get('https://www.linkedin.com/login')
 

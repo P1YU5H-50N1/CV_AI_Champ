@@ -71,10 +71,11 @@ def serverSnippet(Text):
 
 if __name__ == '__main__':
 
-    Directory = 'CSVs/Resumes.csv'
-    PercentileThreshold = 0.95
-    Words = Remove_NLTK_StopWords(Directory)
+    DIRECTORY = 'CSVs/Resumes.csv'
+    PERCENTILE_THRESHOLD = 0.95
+    
+    Words = Remove_NLTK_StopWords(DIRECTORY)
     WordFrequency = CountWordFrequecy(Words)
-    Result = RemoveRemainingStopWords(Words,WordFrequency,PercentileThreshold)
+    Result = RemoveRemainingStopWords(Words,WordFrequency,PERCENTILE_THRESHOLD)
     print(len(Result))
     print(Result)
