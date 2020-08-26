@@ -2,11 +2,12 @@ import pandas as pd
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
+import math
 
 def RemoveRemainingStopWords(WordList,WordCounts,PercentileTh):
     
     WordFreqData = pd.DataFrame(WordCounts.values())
-    MaxWordCount = list(WordFreqData.quantile([PercentileTh])[0])[0]
+    MaxWordCount = math.ceil(list(WordFreqData.quantile([PercentileTh])[0])[0])
     CustomStopWords = [stopWord for stopWord in WordCounts if WordCounts[stopWord] > MaxWordCount]
     Result = [word for word in WordList if not word in CustomStopWords]
     return Result
