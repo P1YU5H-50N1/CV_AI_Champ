@@ -29,7 +29,7 @@ if __name__=="__main__":
         else:
             Path = PDF_DIRECTORY + '/Profile.pdf'
         
-        Corpus.append(pdfToWords(Path))
+        Corpus.append(' '.join(pdfToWords(Path)))
 
     csv = pd.DataFrame(Corpus)
     f = open(CSV_FILE,'w')
