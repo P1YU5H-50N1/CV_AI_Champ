@@ -4,12 +4,12 @@ import time
 
 options = webdriver.ChromeOptions() 
 
-DOWNLOAD_DIR = '<DOWNLOAD DIRECTORY>'
+DOWNLOAD_DIR = '<DOWNLOAD DIRECTORY>'# Default was /PDFs
 
 prefs = {"download.default_directory": DOWNLOAD_DIR,"download.prompt_for_download": False}
 options.add_experimental_option("prefs", prefs)
 
-CHROME_EXECUTABLE = '<CHROME_EXECUTABLE>'
+CHROME_EXECUTABLE = '<CHROME_EXECUTABLE>'# Default was Chromedriver/chromedriver
 
 driver = webdriver.Chrome(CHROME_EXECUTABLE,options=options)
 driver.maximize_window()

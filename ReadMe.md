@@ -80,9 +80,10 @@ python3 pdfToCSV.py
 ```
 If it shows up an error then you might want to check the variables once again.
 ### Setting up and running RemoveStopWords
-It requires NLTK. So, execute :
+It requires NLTK and scikit-learn. So, execute :
 ```
 pip install nltk
+pip install sklearn
 ```
 Variables you might want to change :  
 >DIRECTORY = Path to the csv file generated via previous script or value CSV_FILE in pdfToCSV  
@@ -109,4 +110,5 @@ The API should be up and running by now you can try it by opening http://127.0.0
 * Pandas<br/>
 * NLTK<br/>
 * Flask<br/>
+* Scikit Learn <br/>
  
