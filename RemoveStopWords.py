@@ -11,7 +11,6 @@ def RemoveSymbols(Words):
     # included @ because of emails
     alphanums = "abcdefghijklmnopqrstuvwxyz@ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     email_regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
-    # website_regex =  '(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     website_regex = r"^www.|^http:\/\/|^https:\/\/"
     result = []
     Symbols = set()

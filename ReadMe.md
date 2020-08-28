@@ -26,7 +26,8 @@ Note: The Script might be a bit slow because it pauses for 30 seconds before mak
 #### pdfToCSV
 This script a function and uses pandas and pdftotext library from PyPI. First it takes Directory Path where LinkedIn resumes are stored in a format like Profile.pdf, Profile (1).pdf ...upto Profile (N).pdf. In our case, N = 50.  
 #### RemoveStopWords
-This script contains functions which remove stop words( Words used too often in language) from corpus, it happens to be text from LinkedIn profile, in our case. RemoveStopWords extract words from csv contained in a give path, removes symbols, then removes stopwords which are contained in NLTK. Still, there would remain a few words which behave like stop words. It also removes those words which are above 95 percentile of word counts. Since, the distribution is distributed to the near hundreds, so we chose 95 percentile as a threshold. It then prints the result.
+This script contains functions which remove stop words( Words used too often in language) from corpus, it happens to be text from LinkedIn profile, in our case. RemoveStopWords extract words from csv contained in a give path, removes symbols, then removes stopwords which are contained in NLTK. 
+Then we use TF-IDF in order to find the most significant words from the corpus. This file also contains the function which will be used in API to find most significant words.
 ### API/
 #### FlaskAPI
 This is the api which is required in task 4 using flask framework. The api has 4 routes:  

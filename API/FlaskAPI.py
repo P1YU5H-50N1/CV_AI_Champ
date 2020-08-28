@@ -18,8 +18,10 @@ def impWords():
         response = dict()
         response['Imp_Words'] = serverSnippet(text)
         return jsonify(response)
-    else:
-        return 
+
+@app.route("/",methods = ['GET'])
+def home():
+    return render_template('home.html')
 
 @app.route('/uploadWords',methods = ['GET'])
 def uploadText():
