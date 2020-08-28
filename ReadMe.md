@@ -20,15 +20,15 @@ shouldn’t contain stop words (like is, the, an, etc.).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/FlaskAPI.py  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/template
 
-#### PDFScraper
+#### PDFScraper   [ _Task 1 - Collect PDF for 50 LinkedIn Profiles_ ] 
 PDF Scraper, obviously, scrapes PDFs of one's LinkedIn connections. Certain variables like username and password needs to be provided by the user. It uses selenium ( yes, it is a testing suite but here is being hacked a web scraper ) and Google Chrome.  
 Note: The Script might be a bit slow because it pauses for 30 seconds before making another request in order to keep LinkedIn from blocking requests and having undesirable effects over your account. If you want to speed it up a bit change time.sleep(10) on line 61.(I don't recommend it.)
-#### pdfToCSV
+#### pdfToCSV   [ _Task 2 - Extracting text from CSV files collected in Task 1_ ]
 This script a function and uses pandas and pdftotext library from PyPI. First it takes Directory Path where LinkedIn resumes are stored in a format like Profile.pdf, Profile (1).pdf ...upto Profile (N).pdf. In our case, N = 50.  
-#### RemoveStopWords
+#### RemoveStopWords   [ _Task 3 - Preprocess text and Prints top 10 significant words_ ]
 This script contains functions which remove stop words( Words used too often in language) from corpus, it happens to be text from LinkedIn profile, in our case. RemoveStopWords extract words from csv contained in a give path, removes symbols, then removes stopwords which are contained in NLTK. 
 Then we use TF-IDF in order to find the most significant words from the corpus. This file also contains the function which will be used in API to find most significant words.
-### API/
+### API/   [ _Task 4 - API which extracts text from PDF and Return top 10 significant words_ ]
 #### FlaskAPI
 This is the api which is required in task 4 using flask framework. The api has 4 routes:  
  * /uploadPDF  
