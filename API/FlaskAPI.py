@@ -14,6 +14,7 @@ def impWords():
     if request.method == 'POST':
 
         text = request.form['textdata']
+        text = str(text)
         response = dict()
         response['Imp_Words'] = serverSnippet(text)
         return jsonify(response)
