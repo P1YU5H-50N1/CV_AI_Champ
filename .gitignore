@@ -1,6 +1,6 @@
 /Chromedriver
 chromedriver
-/PDFs
+# /PDFs
 /CSVs
 
 #playground file to test sample scripts
