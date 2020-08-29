@@ -56,7 +56,7 @@ pip install selenium
 After selenium is installed you will need to change a few variables in PDFScraper.py
 >DOWNLOAD_DIR = Path where the pdfs should be downloaded( for me it was AI_Champ/PDFs )  
 CHROME_EXECUTABLE = Path to the chrome driver  
-Email = Your LinkedIn Email
+Email = Your LinkedIn Email   
 Password = Your LinkedIn Password
 
 Once those are set up you can execute
